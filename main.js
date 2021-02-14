@@ -5,7 +5,9 @@ async function getData(){
 
     try{
         let resonse = await fetch(url)
-        return await resonse.json();
+        let data = await resonse.json();
+        return data;
+        console.log(data)
     } catch(error){
         console.log(error)
     }
@@ -13,7 +15,7 @@ async function getData(){
 
 //Render to the DOM
 async function renderUsers() {
-    let users = await getUsers();
+    let users = await getData();
     let html = '';
     users.forEach(user => {
         let htmlSegment = `<div class="user">
